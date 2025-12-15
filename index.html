@@ -1,0 +1,1007 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мария Сорокина | Юрист для онлайн-бизнеса</title>
+    <meta name="description" content="Юридическая защита онлайн-школ. Оферты, 152-ФЗ (о персональных данных), 38-ФЗ (реклама).">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚖️</text></svg>">
+
+    <style>
+        /* --- 1. VARIABLES & RESET --- */
+        :root {
+            /* Palette: Cream + Emerald + Gold + Dark */
+            --bg-main: #FAF7F1;    
+            --bg-block: #EEE6DB;   
+            --bg-white: #FFFFFF;   
+            
+            --text-main: #121417;  
+            --text-muted: #6A6A6A; 
+            
+            --primary: #0F4D3F;    /* Deep Emerald */
+            --primary-light: #1A6B58; 
+            --accent: #C2A378;     /* Metal/Gold */
+            --accent-glow: rgba(194, 163, 120, 0.5);
+            
+            --border: #DED6CC;     
+            --border-hover: #C2A378;
+
+            --font-serif: 'Playfair Display', serif;
+            --font-sans: 'Manrope', sans-serif;
+
+            --container-width: 1200px;
+            --ease-premium: cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+        
+        body {
+            font-family: var(--font-sans);
+            background-color: var(--bg-main);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        body.no-scroll { overflow: hidden; }
+
+        a { text-decoration: none; color: inherit; transition: 0.3s var(--ease-premium); }
+        ul { list-style: none; }
+        img { max-width: 100%; display: block; }
+
+        /* --- 2. TYPOGRAPHY --- */
+        h1, h2, h3, h4, h5 {
+            font-family: var(--font-serif);
+            font-weight: 500;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+            color: var(--text-main);
+        }
+
+        h1 { font-size: clamp(2.5rem, 5vw, 4.5rem); letter-spacing: -0.01em; }
+        h2 { font-size: clamp(2rem, 4vw, 3.2rem); margin-bottom: 2rem; }
+        h3 { font-size: 1.5rem; }
+        p { margin-bottom: 1.5rem; font-weight: 400; color: var(--text-muted); }
+
+        .text-bold { font-weight: 600; color: var(--primary); }
+
+        /* --- 3. LAYOUT & UTILS --- */
+        .container {
+            width: 90%;
+            max-width: var(--container-width);
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        section { padding: 6rem 0; position: relative; }
+
+        .section-tag {
+            display: inline-block;
+            font-family: var(--font-sans);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--primary);
+            border: 1px solid var(--accent);
+            padding: 6px 16px;
+            border-radius: 100px;
+            margin-bottom: 1.5rem;
+            background: rgba(194, 163, 120, 0.1);
+        }
+
+        /* TEXT GRADIENT */
+        .text-gradient { color: var(--accent); }
+
+        /* Backgrounds */
+        .bg-overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            z-index: 0; pointer-events: none;
+            background: radial-gradient(circle at 15% 50%, rgba(15, 77, 63, 0.05), transparent 45%),
+                        radial-gradient(circle at 85% 80%, rgba(194, 163, 120, 0.08), transparent 40%);
+        }
+        .grain {
+            position: fixed; inset: 0; z-index: 0; opacity: 0.03; pointer-events: none;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+            filter: invert(1);
+        }
+
+        /* --- 4. COMPONENTS --- */
+        /* Buttons */
+        .btn-primary {
+            display: inline-flex; align-items: center; justify-content: center;
+            padding: 16px 40px;
+            background: var(--primary);
+            color: #fff;
+            border-radius: 4px;
+            font-weight: 500;
+            font-family: var(--font-sans);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            transition: all 0.6s var(--ease-premium);
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(15, 77, 63, 0.15);
+        }
+        .btn-primary::after {
+            content: ''; position: absolute; top: 0; left: -100%; width: 50%; height: 100%;
+            background: linear-gradient(to right, transparent, rgba(255,255,255,0.4), transparent);
+            transform: skewX(-25deg); transition: 0s; pointer-events: none;
+        }
+        .btn-primary:hover { 
+            transform: translateY(-3px) scale(1.01); 
+            box-shadow: 0 12px 30px var(--accent-glow);
+            background: var(--primary-light);
+        }
+        .btn-primary:hover::after { left: 150%; transition: 0.8s ease-in-out; }
+        .btn-primary:disabled { opacity: 0.7; cursor: not-allowed; transform: none; box-shadow: none; }
+
+        .btn-outline {
+            display: inline-flex; justify-content: center; align-items: center;
+            width: 100%; padding: 14px;
+            border: 1px solid var(--border);
+            background: transparent;
+            color: var(--text-main);
+            font-family: var(--font-sans);
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: 0.3s;
+            border-radius: 4px;
+        }
+        .btn-outline:hover {
+            border-color: var(--primary);
+            background: rgba(15, 77, 63, 0.05);
+            color: var(--primary);
+        }
+
+        /* Cards */
+        .matte-card {
+            background: var(--bg-block);
+            border: 1px solid var(--border);
+            padding: 2.5rem;
+            border-radius: 8px;
+            transition: transform 0.5s var(--ease-premium), box-shadow 0.5s, border-color 0.5s;
+            position: relative;
+            display: flex; flex-direction: column; height: 100%;
+        }
+        .matte-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 40px rgba(18, 20, 23, 0.06);
+            border-color: var(--accent);
+            background: #fff;
+        }
+
+        /* --- 5. HEADER --- */
+        header {
+            position: fixed; top: 0; left: 0; width: 100%; z-index: 100;
+            padding: 1.2rem 0;
+            background: rgba(250, 247, 241, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+            transition: transform 0.3s;
+        }
+        .nav-wrapper { display: flex; justify-content: space-between; align-items: center; }
+        .logo {
+            font-family: var(--font-serif); font-size: 1.4rem; font-weight: 700; 
+            color: var(--text-main); letter-spacing: 0.02em;
+        }
+        .logo span { color: var(--primary); font-style: italic; }
+        .desktop-nav { display: flex; gap: 3rem; }
+        .nav-link { font-size: 0.95rem; color: var(--text-muted); position: relative; font-weight: 500; }
+        .nav-link.active, .nav-link:hover { color: var(--primary); }
+        .nav-link::after {
+            content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 1px;
+            background: var(--accent); transition: width 0.3s;
+        }
+        .nav-link.active::after, .nav-link:hover::after { width: 100%; }
+        .header-cta { display: none; }
+        @media(min-width: 992px) { .header-cta { display: flex; } }
+        .burger { display: flex; flex-direction: column; gap: 6px; cursor: pointer; z-index: 102; }
+        .burger span { width: 26px; height: 2px; background: var(--text-main); transition: 0.3s; }
+        @media(min-width: 992px) { .burger { display: none; } }
+        .burger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+        .burger.active span:nth-child(2) { opacity: 0; }
+        .burger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+        .mobile-menu {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
+            background: var(--bg-main); z-index: 101; padding: 8rem 2rem 4rem;
+            display: flex; flex-direction: column; gap: 2rem; align-items: center;
+            opacity: 0; pointer-events: none; transform: translateY(-20px);
+            transition: 0.4s var(--ease-premium);
+        }
+        .mobile-menu.active { opacity: 1; pointer-events: auto; transform: translateY(0); }
+        .mobile-link { font-family: var(--font-serif); font-size: 2rem; color: var(--text-main); }
+
+        /* --- 6. SECTIONS --- */
+        /* HERO */
+        .hero { min-height: 100vh; display: flex; align-items: center; padding-top: 100px; }
+        .hero-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 4rem; align-items: center; }
+        .hero-shimmer {
+            font-family: var(--font-serif); font-weight: 500; display: inline-block;
+            background: linear-gradient(90deg, var(--text-main) 0%, var(--text-main) 40%, #C2A378 50%, var(--text-main) 60%, var(--text-main) 100%);
+            background-size: 200% auto; background-clip: text; -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent; color: var(--text-main);
+            animation: shimmerFlow 6s linear infinite;
+        }
+        @keyframes shimmerFlow { 0% { background-position: -200% center; } 100% { background-position: 200% center; } }
+        
+        .hero-img-wrap {
+            position: relative; width: 100%; border-radius: 8px; overflow: hidden;
+            box-shadow: 0 20px 40px rgba(18, 20, 23, 0.1);
+            border: 1px solid var(--border);
+        }
+        .hero-img { width: 100%; height: auto; display: block; object-fit: cover; }
+        
+        .hero-metrics { display: flex; gap: 2rem; margin-top: 3rem; border-top: 1px solid var(--border); padding-top: 2rem; }
+        .metric h4 { margin: 0; color: var(--primary); font-size: 1.5rem; }
+        .metric span { font-size: 0.85rem; color: var(--text-muted); }
+
+        /* ABOUT */
+        .about-section { background-color: #fff; color: var(--text-main); }
+        .about-layout { display: grid; grid-template-columns: 1fr 1.5fr; gap: 4rem; align-items: start; margin-bottom: 4rem; }
+        .about-left { position: relative; }
+        .about-left::after { content: ''; display: block; width: 60px; height: 2px; background: var(--accent); margin-top: 2rem; }
+        .about-text { font-size: 1.1rem; line-height: 1.8; }
+        .about-quote {
+            text-align: center; max-width: 800px; margin: 0 auto;
+            font-family: var(--font-serif); font-size: 1.5rem; font-style: italic;
+            color: var(--primary); position: relative; padding: 2rem 0;
+            border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+        }
+
+        /* SERVICES */
+        .services-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 1.5rem; }
+        .service-card {
+            background: var(--bg-block); border: 1px solid var(--border);
+            padding: 2.5rem; display: flex; flex-direction: column; justify-content: space-between;
+            transition: 0.3s; position: relative; overflow: hidden;
+        }
+        .service-card:hover { border-color: var(--accent); background: #fff; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+        .service-card h3 { font-size: 1.6rem; margin-bottom: 1rem; color: var(--text-main); }
+        .service-price { font-family: var(--font-sans); color: var(--primary); font-weight: 600; font-size: 1.1rem; margin-top: 1rem; }
+        .service-link {
+            margin-top: 2rem; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.1em;
+            color: var(--text-muted); border-bottom: 1px solid var(--border); display: inline-block; padding-bottom: 4px; cursor: pointer;
+        }
+        .service-link:hover { border-color: var(--accent); color: var(--accent); }
+        .service-card:nth-child(1), .service-card:nth-child(2) { grid-column: span 3; }
+        .service-card:nth-child(3), .service-card:nth-child(4), .service-card:nth-child(5) { grid-column: span 2; }
+
+        /* RISKS SECTION */
+        .risk-card {
+            background: #fff; border: 1px solid var(--border); padding: 2rem; border-radius: 8px;
+            transition: 0.3s; position: relative; overflow: hidden;
+        }
+        .risk-card::before {
+            content: ''; position: absolute; top: 0; left: 0; width: 4px; height: 100%;
+            background: var(--primary);
+        }
+        .risk-card h3 { color: var(--primary); font-size: 1.3rem; margin-bottom: 1rem; }
+        .risk-content p { font-size: 0.95rem; margin-bottom: 1rem; line-height: 1.5; color: var(--text-main); }
+
+        /* FZ-152 INFO SECTION */
+        .fz-info-section { background-color: var(--bg-white); }
+        .fz-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+        .fz-card {
+            background: var(--bg-block); padding: 2rem; border-radius: 8px; border: 1px solid var(--border);
+        }
+        .fz-card h4 { color: var(--primary); font-size: 1.2rem; margin-bottom: 1rem; font-family: var(--font-serif); }
+        .fz-card p { font-size: 0.95rem; margin-bottom: 0.5rem; color: var(--text-main); }
+        .fz-highlight { color: var(--accent); font-weight: 600; }
+
+        /* TIMELINE */
+        .timeline { max-width: 800px; margin: 0 auto; position: relative; padding-left: 20px; }
+        .timeline::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 1px; background: var(--border); }
+        .t-item { position: relative; padding-left: 40px; margin-bottom: 3rem; }
+        .t-item::before {
+            content: ''; position: absolute; left: -5px; top: 6px; width: 11px; height: 11px;
+            background: var(--bg-main); border: 2px solid var(--primary); border-radius: 50%;
+        }
+        .t-item h4 { font-family: var(--font-serif); font-size: 1.3rem; margin-bottom: 0.5rem; color: var(--primary); }
+
+        /* FAQ */
+        .faq-wrap { max-width: 800px; margin: 0 auto; }
+        .faq-item { border-bottom: 1px solid var(--border); margin-bottom: 1rem; }
+        .faq-head {
+            width: 100%; text-align: left; background: none; border: none; padding: 1.5rem 0;
+            color: var(--text-main); font-family: var(--font-serif); font-size: 1.2rem; cursor: pointer;
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .faq-head::after { content: '+'; font-family: var(--font-sans); font-size: 1.5rem; color: var(--accent); transition: 0.3s; }
+        .faq-head.active::after { transform: rotate(45deg); }
+        .faq-body { max-height: 0; overflow: hidden; transition: 0.4s var(--ease-premium); opacity: 0.8; }
+        .faq-body p { padding-bottom: 1.5rem; }
+
+        /* FORM */
+        .form-section { background: var(--bg-block); }
+        .contact-wrap { max-width: 600px; margin: 0 auto; text-align: center; }
+        .form-box { margin-top: 3rem; text-align: left; }
+        .inp-group { position: relative; margin-bottom: 1.5rem; }
+        .inp-field {
+            width: 100%; background: transparent; border: none; border-bottom: 1px solid var(--border);
+            padding: 15px 0; color: var(--text-main); font-family: var(--font-sans); font-size: 1rem;
+            transition: 0.3s;
+        }
+        .inp-field:focus { outline: none; border-bottom-color: var(--primary); }
+        .inp-field::placeholder { color: #999; }
+        
+        .check-group { display: flex; gap: 10px; font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem; align-items: start; }
+        .check-group input { accent-color: var(--primary); margin-top: 4px; flex-shrink: 0; }
+        
+        .doc-trigger { color: var(--primary); text-decoration: underline; cursor: pointer; transition: 0.3s; }
+        .doc-trigger:hover { color: var(--accent); }
+
+        /* FOOTER */
+        footer { border-top: 1px solid var(--border); padding: 4rem 0; margin-top: 4rem; font-size: 0.9rem; background: #fff; }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 3rem; }
+        .footer-col h5 { color: var(--primary); margin-bottom: 1.2rem; font-family: var(--font-serif); }
+        .footer-col ul li { margin-bottom: 0.8rem; }
+        .footer-col a:hover { color: var(--accent); }
+        .policy-link { cursor: pointer; color: var(--text-muted); text-decoration: underline; transition: 0.3s;}
+        .policy-link:hover { color: var(--primary); }
+
+        /* COOKIE BANNER */
+        .cookie-banner {
+            position: fixed; bottom: 0; left: 0; width: 100%;
+            background: #fff; border-top: 1px solid var(--accent);
+            padding: 1.5rem; z-index: 5000;
+            display: none; box-shadow: 0 -5px 20px rgba(0,0,0,0.05);
+            justify-content: center; align-items: center; gap: 2rem;
+            flex-wrap: wrap; text-align: center;
+        }
+        .cookie-banner p { margin: 0; font-size: 0.9rem; color: var(--text-main); }
+        .cookie-btn {
+            background: var(--primary); color: #fff; border: none;
+            padding: 8px 24px; border-radius: 4px; cursor: pointer; transition: 0.3s;
+        }
+        .cookie-btn:hover { background: var(--primary-light); }
+
+        /* MODAL */
+        .modal-overlay {
+            position: fixed; inset: 0; background: rgba(18, 20, 23, 0.6); backdrop-filter: blur(5px);
+            z-index: 2000; display: flex; align-items: center; justify-content: center;
+            opacity: 0; pointer-events: none; transition: 0.3s;
+        }
+        .modal-overlay.open { opacity: 1; pointer-events: auto; }
+        .modal-card {
+            background: var(--bg-main); border: 1px solid var(--border); padding: 3rem;
+            width: 90%; max-width: 600px; text-align: center; position: relative;
+            transform: translateY(30px); transition: 0.4s var(--ease-premium);
+            max-height: 90vh; overflow-y: auto;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+        }
+        .modal-overlay.open .modal-card { transform: translateY(0); }
+        .close-modal {
+            position: absolute; top: 15px; right: 20px; background: none; border: none;
+            color: var(--text-main); font-size: 1.5rem; cursor: pointer;
+        }
+        .modal-card h3 { margin-bottom: 1rem; color: var(--text-main); text-align: left; }
+        .doc-content { text-align: left; font-size: 0.9rem; color: #444; line-height: 1.6; white-space: pre-line; }
+        .doc-content h4 { color: var(--primary); margin-top: 1.5rem; margin-bottom: 0.5rem; font-size: 1rem; }
+
+        /* FLOATS */
+        .floats { position: fixed; bottom: 30px; right: 30px; display: flex; flex-direction: column; gap: 15px; z-index: 90; }
+        .float-btn {
+            width: 55px; height: 55px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            background: var(--primary); border: 1px solid var(--primary-light); color: #fff;
+            box-shadow: 0 5px 20px rgba(15, 77, 63, 0.3); transition: all 0.4s var(--ease-premium);
+        }
+        .float-btn:hover { transform: translateY(-4px) scale(1.05); background: var(--primary-light); border-color: var(--accent); }
+
+        /* RESPONSIVE */
+        @media (max-width: 992px) {
+            .hero-grid { 
+                grid-template-columns: 1fr; 
+                gap: 2rem; 
+                text-align: center; /* Центрируем текст на мобильных */
+            }
+            .hero-content {
+                order: 1; /* Текст первый */
+            }
+            .hero-img-wrap { 
+                order: 2; /* Фото второе */
+                max-width: 100%; 
+                margin: 0 auto; 
+                height: auto;
+            }
+            .hero-metrics {
+                justify-content: center; /* Центрируем метрики */
+            }
+            .desktop-nav { display: none; }
+            .about-layout { grid-template-columns: 1fr; gap: 2rem; }
+            .about-left::after { display: none; }
+            .services-grid { grid-template-columns: 1fr; }
+            .service-card:nth-child(n) { grid-column: auto; }
+        }
+        
+        /* ANIMATIONS */
+        .reveal { opacity: 0; will-change: transform, opacity; }
+        .reveal-up { animation: fadeUp 1s var(--ease-premium) forwards; }
+        .reveal-blur { animation: blurIn 1.2s var(--ease-premium) forwards; }
+        @keyframes fadeUp { from { opacity: 0; transform: translateY(50px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes blurIn { from { opacity: 0; filter: blur(10px); transform: scale(0.95); } to { opacity: 1; filter: blur(0); transform: scale(1); } }
+        @media (prefers-reduced-motion: reduce) { 
+            .reveal { opacity: 1; animation: none; }
+            .hero-shimmer { animation: none; background: none; -webkit-text-fill-color: var(--text-main); color: var(--text-main); }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Effects -->
+    <div class="bg-overlay"></div>
+    <div class="grain"></div>
+
+    <!-- Header -->
+    <header id="main-header">
+        <div class="container nav-wrapper">
+            <a href="#" class="logo">MARIA<span>LAW</span></a>
+            <nav class="desktop-nav">
+                <a href="#about" class="nav-link">Обо мне</a>
+                <a href="#services" class="nav-link">Услуги</a>
+                <a href="#risks" class="nav-link" style="color:var(--primary);">Риски</a>
+                <a href="#faq" class="nav-link">FAQ</a>
+            </nav>
+            <a href="#contact" class="btn-primary header-cta" style="padding: 10px 24px; font-size: 0.9rem;">Записаться</a>
+            <div class="burger" id="burgerBtn"><span></span><span></span><span></span></div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="#about" class="mobile-link">Обо мне</a>
+        <a href="#services" class="mobile-link">Услуги</a>
+        <a href="#risks" class="mobile-link">Риски и штрафы</a>
+        <a href="#faq" class="mobile-link">FAQ</a>
+        <a href="#contact" class="mobile-link" style="color: var(--primary);">Связаться</a>
+    </div>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero" id="home">
+            <div class="container hero-grid">
+                <div class="hero-content">
+                    <div class="section-tag reveal">Онлайн-юрист</div>
+                    <h1 class="reveal hero-shimmer">Защищаю ваш онлайн-бизнес от рисков и штрафов</h1>
+                    <p class="reveal" style="font-size: 1.1rem; max-width: 500px; margin-left: auto; margin-right: auto;">Профессиональные оферты, маркировка рекламы (38-ФЗ) и защита персональных данных (152-ФЗ) для онлайн-школ, экспертов и предпринимателей.</p>
+                    <div class="reveal" style="margin-top: 2.5rem;">
+                        <a href="#contact" class="btn-primary">Записаться на консультацию</a>
+                    </div>
+                    <div class="hero-metrics reveal">
+                        <div class="metric"><h4>16</h4><span>лет опыта</span></div>
+                        <div class="metric"><h4>100+</h4><span>выигранных дел</span></div>
+                        <div class="metric"><h4>Online</h4><span>формат работы</span></div>
+                    </div>
+                </div>
+                
+                <div class="hero-img-wrap reveal">
+                    <!-- IMAGE SOURCE: Needs photo.jpg in root -->
+                    <img src="./photo.jpg" alt="Мария Сорокина" class="hero-img">
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="about-section">
+            <div class="container">
+                <div class="about-layout">
+                    <div class="about-left reveal">
+                        <div class="section-tag">Приятно познакомиться</div>
+                        <h2>Мария<br>Сорокина</h2>
+                        <h4 style="font-family:var(--font-sans); color:var(--primary);">Ваш юридический партнёр</h4>
+                    </div>
+                    <div class="about-text reveal">
+                        <p>Я специализируюсь на правовой поддержке онлайн-бизнеса. Моя задача — не просто составить документ, а создать систему безопасности, которая позволит вам расти, не боясь штрафов, блокировок и возвратов.</p>
+                        <p>Имею 16-летний опыт работы в юриспруденции, включая 10 лет в банковской сфере и 8 лет адвокатской практики.</p>
+                    </div>
+                </div>
+                <div class="about-quote reveal">
+                    "Моя работа — не про страх перед законом, а про уверенность в завтрашнем дне вашего бизнеса."
+                </div>
+            </div>
+        </section>
+
+        <!-- RISKS SECTION -->
+        <section id="risks">
+            <div class="container">
+                <div class="section-tag reveal">Штрафы</div>
+                <h2 class="reveal">Реальные <span class="text-gradient">риски</span></h2>
+                <div class="services-grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
+                    
+                    <!-- Card 1: 152-FZ -->
+                    <div class="risk-card reveal">
+                        <h3>Персональные данные (152-ФЗ)</h3>
+                        <div class="risk-content">
+                            <p>Telegram оштрафовали 3 раза по 80 000 ₽ (всего 240 000 ₽) за публикацию ПДн россиян.</p>
+                            <p><strong>Чат-боты без согласия:</strong><br>Самозанятые: 30 000 ₽<br>ИП/Юрлица: от 100 000 ₽</p>
+                            <p><strong>Утечка данных:</strong><br>ИП: 3–5 млн ₽<br>Юрлица: до 20 млн ₽</p>
+                            <p style="font-size:0.85rem; color:#888;">РКН сканирует сайты автоматически с мая 2025. Один бот или форма — и бизнес под угрозой.</p>
+                        </div>
+                    </div>
+
+                    <!-- Card 2: 38-FZ -->
+                    <div class="risk-card reveal">
+                        <h3>Реклама (38-ФЗ)</h3>
+                        <div class="risk-content">
+                            <p>13 млн ₽ штрафов за 5 месяцев 2025 за рекламу без маркировки.</p>
+                            <p><strong>Реклама в незарегистрированных каналах (>10к):</strong><br>Самозанятые: 2 500 ₽<br>ИП: до 20 000 ₽<br>Юрлица: до 500 000 ₽</p>
+                            <p><strong>Без пометки "Реклама":</strong><br>ИП: до 200 000 ₽<br>Юрлица: до 500 000 ₽</p>
+                        </div>
+                    </div>
+
+                    <!-- Card 3: Offer -->
+                    <div class="risk-card reveal">
+                        <h3>Риски без оферты</h3>
+                        <div class="risk-content">
+                            <p><strong>Кейс:</strong> Онлайн-школа вернула 109 511 ₽ + штраф 30 000 ₽ за неоказанный курс.</p>
+                            <p><strong>Штрафы КоАП:</strong><br>Юрлица: до 50 000 ₽<br>ИП: до 3 000 ₽</p>
+                            <p>Клиент вернул 69 900 ₽ + штраф 50% (143 700 ₽). Бизнес в минусе на 200 000 ₽.</p>
+                            <p style="font-size:0.85rem; color:#888;">РКН и суды блокируют сайты, клиенты требуют возврат без условий.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- 152-FZ DEEP DIVE SECTION -->
+        <section id="fz-info" class="fz-info-section">
+            <div class="container">
+                <div class="section-tag reveal">Ликбез</div>
+                <h2 class="reveal">Что такое <span class="text-gradient">152-ФЗ?</span></h2>
+                <p class="reveal" style="max-width: 700px;">Федеральный закон «О персональных данных» касается всех, кто работает с клиентами. Если вы думаете, что это только для крупных корпораций — вы ошибаетесь.</p>
+                
+                <div class="fz-grid reveal">
+                    <div class="fz-card">
+                        <h4>Что такое Персональные данные?</h4>
+                        <p>Это <span class="fz-highlight">любая информация</span>, относящаяся к определенному человеку.</p>
+                        <p>Имя, телефон, e-mail, ссылка на соцсеть, фото и даже cookie-файлы — всё это персональные данные.</p>
+                    </div>
+                    <div class="fz-card">
+                        <h4>Кто такой Оператор?</h4>
+                        <p>Если вы собираете эти данные (в форму на сайте, в боте, в личке для записи) — вы <span class="fz-highlight">Оператор ПДн</span>.</p>
+                        <p>Это касается и ИП, и самозанятых, и юрлиц.</p>
+                    </div>
+                    <div class="fz-card">
+                        <h4>Что нужно делать?</h4>
+                        <p>1. Разместить на сайте Политику конфиденциальности.</p>
+                        <p>2. Брать Согласие на обработку (галочка в форме).</p>
+                        <p>3. Подать уведомление в Роскомнадзор (ст. 22 152-ФЗ).</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services">
+            <div class="container">
+                <div class="section-tag reveal">Услуги</div>
+                <h2 class="reveal">Варианты сотрудничества</h2>
+                
+                <div class="services-grid">
+                    <div class="service-card reveal">
+                        <div>
+                            <h3>Соц.сети без ШТРАФОВ</h3>
+                            <p>Аудит одной соцсети. Проверка на соблюдение <strong>152-ФЗ (о персональных данных)</strong> и <strong>38-ФЗ (о рекламе)</strong>.</p>
+                            <div class="service-price">5 000 ₽</div>
+                        </div>
+                        <div class="service-link trigger-modal" data-service="Соц.сети без штрафов">Заказать услугу</div>
+                    </div>
+                    
+                    <div class="service-card reveal">
+                        <div>
+                            <h3>Пакет "Под ключ"</h3>
+                            <p>Полная упаковка для сайта/школы. Оферты, Политики, Согласия, Аудит. Срок 10 дней.</p>
+                            <div class="service-price">от 60 000 ₽</div>
+                        </div>
+                        <div class="service-link trigger-modal" data-service="Пакет Под ключ">Заказать услугу</div>
+                    </div>
+
+                    <div class="service-card reveal">
+                        <div>
+                            <h3>Мини-пакет "Соло"</h3>
+                            <p>Для экспертов без сайта. Оферта и документы по 152-ФЗ (о персональных данных).</p>
+                            <div class="service-price">от 20 000 ₽</div>
+                        </div>
+                        <div class="service-link trigger-modal" data-service="Мини-пакет Соло">Заказать</div>
+                    </div>
+
+                    <div class="service-card reveal">
+                        <div>
+                            <h3>Юрист на аутсорсе</h3>
+                            <p>Полное сопровождение бизнеса. Договоры, консультации.</p>
+                            <div class="service-price">50 000 ₽ / мес</div>
+                        </div>
+                        <div class="service-link trigger-modal" data-service="Аутсорс">Заказать</div>
+                    </div>
+
+                    <div class="service-card reveal">
+                        <div>
+                            <h3>Точечное решение</h3>
+                            <p>Индивидуальный договор или консультация.</p>
+                            <div class="service-price">от 20 000 ₽</div>
+                        </div>
+                        <div class="service-link trigger-modal" data-service="Точечное решение">Заказать</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ -->
+        <section id="faq">
+            <div class="container faq-wrap">
+                <h2 class="reveal">Вопросы и ответы</h2>
+                
+                <div class="faq-item reveal">
+                    <button class="faq-head">Нужно ли маркировать рекомендацию (38-ФЗ)?</button>
+                    <div class="faq-body">
+                        <p>Да. Если вы рекомендуете другого эксперта в публичном канале (даже бесплатно), это признается рекламой и требует маркировки согласно Федеральному закону № 38-ФЗ «О рекламе».</p>
+                    </div>
+                </div>
+
+                <div class="faq-item reveal">
+                    <button class="faq-head">Всегда ли нужно возвращать деньги?</button>
+                    <div class="faq-body">
+                        <p>Нет. Если услуга оказана качественно, а в оферте прописаны условия приемки и фактически понесенные расходы, полный возврат может не требоваться.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item reveal">
+                    <button class="faq-head">Нужно ли уведомлять Роскомнадзор (152-ФЗ)?</button>
+                    <div class="faq-body">
+                        <p>Если вы собираете ФИО и телефон (даже через бота или форму) — вы оператор персональных данных. Уведомление обязательно согласно Федеральному закону № 152-ФЗ «О персональных данных».</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Form Section -->
+        <section id="contact" class="form-section">
+            <div class="container contact-wrap">
+                <div class="reveal">
+                    <div class="section-tag">Контакты</div>
+                    <h2>Запишитесь на консультацию</h2>
+                    <p>Оставьте заявку, и я свяжусь с вами для обсуждения вашей задачи.</p>
+                </div>
+
+                <form id="mainForm" class="form-box reveal">
+                    <div class="inp-group">
+                        <input type="text" id="name" class="inp-field" placeholder="Ваше имя" required>
+                    </div>
+                    <div class="inp-group">
+                        <input type="tel" id="phone" class="inp-field" placeholder="+7 (___) ___-__-__" required>
+                    </div>
+                    <div class="inp-group">
+                        <input type="text" id="tg" class="inp-field" placeholder="Ник в Telegram (@username)">
+                    </div>
+                    <div class="inp-group">
+                        <input type="text" id="task" class="inp-field" placeholder="Кратко о задаче">
+                    </div>
+                    
+                    <!-- NEW CHECKBOXES -->
+                    <div class="check-group">
+                        <input type="checkbox" id="agreement" checked required>
+                        <label for="agreement">С <span class="doc-trigger" onclick="event.preventDefault(); openDoc('policy');">Политикой конфиденциальности</span> ознакомлен(а), с условиями согласен(на) и даю <span class="doc-trigger" onclick="event.preventDefault(); openDoc('pd_consent');">Согласие</span> на обработку персональных данных.</label>
+                    </div>
+                    <div class="check-group">
+                        <input type="checkbox" id="newsletter" checked>
+                        <label for="newsletter">Даю <span class="doc-trigger" onclick="event.preventDefault(); openDoc('ad_consent');">согласие</span> на получение электронных рассылок.</label>
+                    </div>
+
+                    <button type="submit" id="submitBtn" class="btn-primary" style="width: 100%;">Отправить заявку</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="logo" style="margin-bottom: 1rem;">MARIA<span>LAW</span></div>
+                    <p style="font-size: 0.85rem; color: var(--text-muted);">Юридическая защита вашего онлайн-бизнеса.</p>
+                </div>
+                <div class="footer-col">
+                    <h5>Контакты</h5>
+                    <ul>
+                        <li><a href="https://t.me/SorokinaMariaLAW">Telegram: @SorokinaMariaLAW</a></li>
+                        <li><a href="https://wa.me/79034064646">WhatsApp: +7 903 406-46-46</a></li>
+                        <li><a href="https://t.me/MariaLAWER">Канал: Мария о праве</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h5>Реквизиты</h5>
+                    <p style="font-size: 0.8rem; color: var(--text-muted);">ИП Сорокина Мария Сергеевна<br>ИНН 616484065225<br>ОГРНИП 324619600167363</p>
+                </div>
+                <div class="footer-col">
+                    <h5>Политика</h5>
+                    <div class="policy-link" onclick="openDoc('policy')">Политика обработки ПД</div>
+                </div>
+            </div>
+            <div style="border-top: 1px solid var(--border); margin-top: 2rem; padding-top: 2rem; font-size: 0.75rem; color: var(--text-muted);">
+                &copy; 2025 Maria Sorokina.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cookie Banner -->
+    <div id="cookieBanner" class="cookie-banner">
+        <p>Мы используем файлы cookie для улучшения работы сайта.</p>
+        <button class="cookie-btn" onclick="acceptCookies()">Хорошо</button>
+    </div>
+
+    <!-- Floating Buttons -->
+    <div class="floats">
+        <a href="https://t.me/SorokinaMariaLAW" target="_blank" class="float-btn" aria-label="Telegram">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+        </a>
+        <a href="https://wa.me/79034064646" target="_blank" class="float-btn" aria-label="WhatsApp">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+        </a>
+    </div>
+
+    <!-- Modals (Contact, Policy, Consent) -->
+    <div class="modal-overlay" id="contactModal">
+        <div class="modal-card">
+            <button class="close-modal" onclick="closeModal()">×</button>
+            <h3 style="margin-bottom: 0.5rem; color: var(--text-main);">Заявка принята!</h3>
+            <p style="color: var(--text-muted); margin-bottom: 1.5rem; font-size: 0.9rem;">Я получила ваше сообщение и свяжусь с вами в ближайшее время. Если нужно срочно, пишите мне напрямую:</p>
+            <a href="#" id="linkTG" target="_blank" class="social-btn" style="background:#229ED9">Telegram</a>
+            <a href="#" id="linkWA" target="_blank" class="social-btn" style="background:#25D366">WhatsApp</a>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="docModal">
+        <div class="modal-card" style="text-align: left;">
+            <button class="close-modal" onclick="closeDoc()">×</button>
+            <h3 id="docTitle" style="margin-bottom: 1rem; color: var(--text-main);">Документ</h3>
+            <div id="docContent" class="doc-content">
+                <!-- Content injected by JS -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 1. Scroll Animations
+        const animTypes = ['reveal-up', 'reveal-blur'];
+        const elements = document.querySelectorAll('.reveal');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const el = entry.target;
+                    const anim = animTypes[Math.floor(Math.random() * animTypes.length)];
+                    const delay = Math.floor(Math.random() * 250);
+                    el.classList.add(anim);
+                    el.style.animationDelay = `${delay}ms`;
+                    observer.unobserve(el);
+                }
+            });
+        }, { threshold: 0.1 });
+        elements.forEach(el => observer.observe(el));
+
+        // 2. Navigation
+        const burger = document.getElementById('burgerBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const body = document.body;
+        burger.addEventListener('click', () => {
+            burger.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+            body.classList.toggle('no-scroll');
+        });
+        document.querySelectorAll('.nav-link, .mobile-link').forEach(link => {
+            link.addEventListener('click', () => {
+                burger.classList.remove('active');
+                mobileMenu.classList.remove('active');
+                body.classList.remove('no-scroll');
+            });
+        });
+
+        // 3. FAQ
+        document.querySelectorAll('.faq-head').forEach(btn => {
+            btn.addEventListener('click', () => {
+                btn.classList.toggle('active');
+                const content = btn.nextElementSibling;
+                if (content.style.maxHeight) content.style.maxHeight = null;
+                else content.style.maxHeight = content.scrollHeight + "px";
+            });
+        });
+
+        // 4. Modals
+        const contactModal = document.getElementById('contactModal');
+        const docModal = document.getElementById('docModal');
+        const docTitle = document.getElementById('docTitle');
+        const docContent = document.getElementById('docContent');
+        const linkTG = document.getElementById('linkTG');
+        const linkWA = document.getElementById('linkWA');
+
+        // Document Text Content
+        const policyText = `
+            <h3>Политика конфиденциальности</h3>
+            <p>1. Общие положения<br>
+            Настоящая политика обработки персональных данных составлена в соответствии с требованиями Федерального закона от 27.07.2006. № 152-ФЗ «О персональных данных» (далее — Закон о персональных данных) и определяет порядок обработки персональных данных и меры по обеспечению безопасности персональных данных, предпринимаемые ИП Сорокиной Марией Сергеевной (далее — Оператор).<br>
+            1.1. Оператор ставит своей важнейшей целью и условием осуществления своей деятельности соблюдение прав и свобод человека и гражданина при обработке его персональных данных, в том числе защиты прав на неприкосновенность частной жизни, личную и семейную тайну.<br>
+            1.2. Настоящая политика Оператора в отношении обработки персональных данных (далее — Политика) применяется ко всей информации, которую Оператор может получить о посетителях веб-сайта https://sorokina-urist.ru</p>
+
+            <p>2. Основные понятия, используемые в Политике<br>
+            2.1. Автоматизированная обработка персональных данных — обработка персональных данных с помощью средств вычислительной техники.<br>
+            2.2. Блокирование персональных данных — временное прекращение обработки персональных данных (за исключением случаев, если обработка необходима для уточнения персональных данных).<br>
+            2.3. Веб-сайт — совокупность графических и информационных материалов, а также программ для ЭВМ и баз данных, обеспечивающих их доступность в сети интернет по сетевому адресу https://sorokina-urist.ru<br>
+            2.4. Информационная система персональных данных — совокупность содержащихся в базах данных персональных данных и обеспечивающих их обработку информационных технологий и технических средств.<br>
+            2.5. Обезличивание персональных данных — действия, в результате которых невозможно определить без использования дополнительной информации принадлежность персональных данных конкретному Пользователю или иному субъекту персональных данных.<br>
+            2.6. Обработка персональных данных — любое действие (операция) или совокупность действий (операций), совершаемых с использованием средств автоматизации или без использования таких средств с персональными данными, включая сбор, запись, систематизацию, накопление, хранение, уточнение (обновление, изменение), извлечение, использование, передачу (распространение, предоставление, доступ), обезличивание, блокирование, удаление, уничтожение персональных данных.<br>
+            2.7. Оператор — государственный орган, муниципальный орган, юридическое или физическое лицо, самостоятельно или совместно с другими лицами организующие и/или осуществляющие обработку персональных данных, а также определяющие цели обработки персональных данных, состав персональных данных, подлежащих обработке, действия (операции), совершаемые с персональными данными.<br>
+            2.8. Персональные данные — любая информация, относящаяся прямо или косвенно к определенному или определяемому Пользователю веб-сайта https://sorokina-urist.ru<br>
+            2.9. Персональные данные, разрешенные субъектом персональных данных для распространения, — персональные данные, доступ неограниченного круга лиц к которым предоставлен субъектом персональных данных путем дачи согласия на обработку персональных данных, разрешенных субъектом персональных данных для распространения в порядке, предусмотренном Законом о персональных данных (далее — персональные данные, разрешенные для распространения).<br>
+            2.10. Пользователь — любой посетитель веб-сайта https://sorokina-urist.ru<br>
+            2.11. Предоставление персональных данных — действия, направленные на раскрытие персональных данных определенному лицу или определенному кругу лиц.<br>
+            2.12. Распространение персональных данных — любые действия, направленные на раскрытие персональных данных неопределенному кругу лиц (передача персональных данных) или на ознакомление с персональными данными неограниченного круга лиц, в том числе обнародование персональных данных в средствах массовой информации, размещение в информационно-телекоммуникационных сетях или предоставление доступа к персональным данным каким-либо иным способом.<br>
+            2.13. Трансграничная передача персональных данных — передача персональных данных на территорию иностранного государства органу власти иностранного государства, иностранному физическому или иностранному юридическому лицу.<br>
+            2.14. Уничтожение персональных данных — любые действия, в результате которых персональные данные уничтожаются безвозвратно с невозможностью дальнейшего восстановления содержания персональных данных в информационной системе персональных данных и/или уничтожаются материальные носители персональных данных.<br>
+            2.15. «Cookies» — небольшой фрагмент данных, отправленный веб-сервером и хранимый на компьютере пользователя, который веб-клиент или веб-браузер каждый раз пересылает веб-серверу в HTTP-запросе при попытке открыть страницу соответствующего сайта.<br>
+            2.16. «IP-адрес» — уникальный сетевой адрес узла в компьютерной сети, построенной по протоколу IP.</p>
+
+            <p>3. Цели обработки персональных данных<br>
+            3.1. Цель: Подготовка, заключение и исполнение гражданско-правового договора. Категории данных: ФИО, контакты, паспортные данные, реквизиты. Основание: исполнение договора.<br>
+            3.2. Цель: Продвижение товаров, работ, услуг на рынке. Категории данных: ФИО, контакты. Основание: согласие субъекта.</p>
+
+            <p>4. Права и обязанности Оператора<br>
+            4.1. Оператор имеет право получать достоверную информацию, продолжать обработку без согласия при наличии оснований.<br>
+            4.2. Оператор обязан предоставлять информацию по запросу, соблюдать конфиденциальность, принимать меры защиты.</p>
+
+            <p>5. Права субъектов<br>
+            5.1. Получать информацию об обработке, требовать уточнения, блокирования, отзыва согласия.</p>
+
+            <p>6. Принципы обработки<br>
+            Законность, справедливость, ограничение целью, недопустимость избыточности, точность, хранение не дольше необходимого.</p>
+
+            <p>7. Безопасность<br>
+            Оператор принимает правовые, организационные и технические меры для защиты данных.</p>
+
+            <p>8. Заключительные положения<br>
+            Пользователь может получить разъяснения по почте sorokinam87@yandex.ru. Политика действует бессрочно.</p>
+        `;
+        
+        const pdConsentText = `
+            <h3>Согласие на обработку персональных данных</h3>
+            <p>Настоящим субъект персональных данных, действуя свободно, своей волей и в своих интересах, а также подтверждая свою дееспособность, в соответствии со ст. 9 Федерального закона от 27.07.2006 № 152-ФЗ «О персональных данных» дает согласие оператору – индивидуальному предпринимателю Сорокиной Марии Сергеевны ИНН 616484065225, ОГРНИП 324619600167363, юридический адрес: г.Ростов-на-Дону, ул.Б.Садовая 37А кв. 5, на обработку своих персональных данных на следующих условиях:</p>
+            
+            <p>1. Цель обработки данных: Продвижение товаров, работ, услуг на рынке; Подготовка, заключение и исполнение гражданско-правового договора.</p>
+            <p>2. Перечень данных: фамилия, имя, отчество, номер телефона, адрес электронной почты, аккаунт в мессенджерах.</p>
+            <p>3. Перечень действий: сбор, запись, систематизация, накопление, хранение, уточнение, использование, удаление.</p>
+            <p>4. Срок действия: до достижения целей обработки или отзыва согласия.</p>
+            <p>5. Отзыв согласия: путем направления уведомления на электронную почту sorokinam87@yandex.ru.</p>
+        `;
+
+        const adConsentText = `
+            <h3>СОГЛАСИЕ НА ПОЛУЧЕНИЕ РЕКЛАМНО-ИНФОРМАЦИОННЫХ МАТЕРИАЛОВ</h3>
+            <p>В соответствии с частью 1 статьи 18 Федерального закона от 13.03.2006 № 38 ФЗ «О рекламе», настоящим я, действуя свободно, своей волей и в своем интересе, а также подтверждая свою дееспособность, даю свое согласие ИНДИВИДУАЛЬНОМУ ПРЕДПРИНИМАТЕЛЮ СОРОКИНОЙ МАРИИ СЕРГЕЕВНЕ (ИНН 616484065225, ОГРНИП 324619600167363, email: sorokinam87@yandex.ru) на направление мне рекламно-информационных материалов.</p>
+            <p>Я соглашаюсь на получение рекламы и информации с использованием любых средств связи, включая электронную почту, телефон, социальные сети, мессенджеры (SMS, Push, чат-боты).</p>
+            <p>Я подтверждаю, что уведомлен о возможности отказаться от рассылки в любое время путем снятия галочки в форме или направления заявления на sorokinam87@yandex.ru.</p>
+            <p>Согласие действует бессрочно до момента его отзыва.</p>
+        `;
+
+        function openModal(msg) {
+            const enc = encodeURIComponent(msg);
+            linkTG.href = `https://t.me/SorokinaMariaLAW?text=${enc}`;
+            linkWA.href = `https://wa.me/79034064646?text=${enc}`;
+            contactModal.classList.add('open');
+            body.classList.add('no-scroll');
+        }
+
+        function closeModal() {
+            contactModal.classList.remove('open');
+            body.classList.remove('no-scroll');
+        }
+
+        function openDoc(type) {
+            if (type === 'policy') {
+                docTitle.innerText = "Политика конфиденциальности";
+                docContent.innerHTML = policyText;
+            } else if (type === 'pd_consent') {
+                docTitle.innerText = "Согласие на обработку ПД";
+                docContent.innerHTML = pdConsentText;
+            } else if (type === 'ad_consent') {
+                docTitle.innerText = "Согласие на рассылку";
+                docContent.innerHTML = adConsentText;
+            }
+            docModal.classList.add('open');
+            body.classList.add('no-scroll');
+        }
+
+        function closeDoc() {
+            docModal.classList.remove('open');
+            body.classList.remove('no-scroll');
+        }
+
+        contactModal.addEventListener('click', (e) => { if (e.target === contactModal) closeModal(); });
+        docModal.addEventListener('click', (e) => { if (e.target === docModal) closeDoc(); });
+
+        // 5. Triggers (Updated: Scroll to Form + Prefill)
+        document.querySelectorAll('.trigger-modal').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const service = btn.getAttribute('data-service');
+                const formSection = document.getElementById('contact');
+                const taskInput = document.getElementById('task');
+
+                // Scroll to form
+                formSection.scrollIntoView({ behavior: 'smooth' });
+
+                // Pre-fill task field
+                taskInput.value = `Меня интересует услуга: "${service}"`;
+                
+                // Focus on name field or task field
+                setTimeout(() => {
+                    document.getElementById('name').focus();
+                }, 800); // Small delay to wait for scroll
+            });
+        });
+
+        // 6. Cookie Banner
+        function acceptCookies() {
+            document.getElementById('cookieBanner').style.display = 'none';
+            localStorage.setItem('cookiesAccepted', 'true');
+        }
+        if (!localStorage.getItem('cookiesAccepted')) {
+            document.getElementById('cookieBanner').style.display = 'flex';
+        }
+
+        // 7. Form Submit & Telegram Bot
+        const botToken = '8161399295:AAFmyRyo5tIi1ecgAgTeW8NoKHCUJcWg3M0';
+        const chatId = '925990474'; 
+
+        document.getElementById('mainForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const submitBtn = document.getElementById('submitBtn');
+            const originalText = submitBtn.innerText;
+            submitBtn.innerText = 'Отправка...';
+            submitBtn.disabled = true;
+
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            const tg = document.getElementById('tg').value;
+            const task = document.getElementById('task').value;
+            const newsletter = document.getElementById('newsletter').checked ? "Да" : "Нет";
+            
+            const msg = `<b>Новая заявка!</b>\n\n<b>Имя:</b> ${name}\n<b>Телефон:</b> ${phone}\n<b>TG:</b> ${tg}\n<b>Задача:</b> ${task}\n<b>Рассылка:</b> ${newsletter}`;
+
+            try {
+                const response = await fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ chat_id: chatId, text: msg, parse_mode: 'HTML' })
+                });
+                if (response.ok) {
+                    openModal(`Здравствуйте! Меня зовут ${name}. \nЗадача: ${task}`);
+                    document.getElementById('mainForm').reset();
+                } else {
+                    alert('Ошибка отправки. Напишите напрямую.');
+                }
+            } catch (error) {
+                alert('Ошибка сети.');
+            } finally {
+                submitBtn.innerText = originalText;
+                submitBtn.disabled = false;
+            }
+        });
+
+        // 8. Phone Mask
+        document.getElementById('phone').addEventListener('input', (e) => {
+            let x = e.target.value.replace(/\D/g, '').match(/(\d{0,1})(\d{0,3})(\d{0,3})(\d{0,2})(\d{0,2})/);
+            if (!x[2]) { e.target.value = x[1] ? '+7' : ''; return; }
+            e.target.value = `+7 (${x[2]}) ${x[3]}` + (x[4] ? `-${x[4]}` : '') + (x[5] ? `-${x[5]}` : '');
+        });
+    </script>
+</body>
+</html>
